@@ -1,0 +1,97 @@
+﻿@model IEnumerable<GroceryManagment.Models.sale>
+
+@{
+    ViewBag.Title = "DisplaySale";
+}
+
+<style>
+    /* Custom CSS for enhanced styling */
+    body {
+        background-color: lightcyan;
+        /*background-image: url('~/Content/themes/base/images/photo-1568871391149-449702439177.jpg');*/
+    }
+
+    h2 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary,
+    .btn-success,
+    .btn-danger {
+        margin-right: 5px;
+    }
+
+    .table-responsive {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th,
+        .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+    .thead-dark th {
+        background-color: #333;
+        color: white;
+    }
+
+    /* Custom CSS for table hover effect */
+    .table tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
+
+<script>
+    // JavaScript for confirming delete action
+    function confirmDelete(id) {
+        if (confirm("Are you sure you want to delete this sale record?")) {
+            window.location.href = '@Url.Action("Delete", "Sale", new { id = "__id__" })'.replace('__id__', id);
+        }
+    }
+</script>
+
+<div class="container mt-5">
+    <h2>Display Sell Items</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayName("Product Name")</th>
+                    <th>@Html.DisplayName("Product Quantity")</th>
+                    <th>@Html.DisplayName("Sale Date")</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.sale_product)</td>
+                        <td>@Html.DisplayFor(modelItem => item.sale_quantity)</td>
+                        <td>@Html.DisplayFor(modelItem => item.sale_date)</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm" onclick="location.href='@Url.Action("Edit", "Sale", new { id = item.id })'">Edit</button>
+                            <button class="btn btn-outline-success btn-sm" onclick="location.href='@Url.Action("Details", "Sale", new { id = item.id })'">Details</button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="confirmDelete(@item.id)">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Sell Item", "SaleProduct", "sale", new { @class = "btn btn-primary px-2 py-2 mt-3" })
+    </p>
+</div>

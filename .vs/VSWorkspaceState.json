@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\GroceryManagment",
+    "\\GroceryManagment\\Controllers",
+    "\\GroceryManagment\\Views",
+    "\\GroceryManagment\\Views\\Product",
+    "\\GroceryManagment\\Views\\Purchase"
+  ],
+  "SelectedNode": "\\GroceryManagment\\Controllers\\PurchaseController.cs",
+  "PreviewInSolutionExplorer": false
+}

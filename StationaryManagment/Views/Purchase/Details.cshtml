@@ -1,0 +1,42 @@
+﻿@model GroceryManagment.Models.purchase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>purchase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Purchase Product")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purchase_product)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Purchase Quantity")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purchase_quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Purchase Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purchase_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit","purchase", new { id = Model.id }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("cancel", "DisplayPurchase","purchase", new { @class = "btn btn-danger" })
+</p>

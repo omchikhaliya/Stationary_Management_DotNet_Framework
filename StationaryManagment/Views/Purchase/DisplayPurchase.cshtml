@@ -1,0 +1,77 @@
+﻿@model IEnumerable<GroceryManagment.Models.purchase>
+
+@{
+    ViewBag.Title = "DisplayPurchase";
+}
+
+<style>
+    /* Custom CSS for enhanced styling */
+    h2 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .btn-primary,
+    .btn-success,
+    .btn-danger {
+        margin-right: 5px;
+    }
+
+    .table-responsive {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th,
+        .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+    .thead-dark th {
+        background-color: #333;
+        color: white;
+    }
+</style>
+
+<div class="container">
+    <h2>Display Purchase</h2>
+    <p>
+        @Html.ActionLink("Create New", "PurchaseProduct", "purchase", new { @class = "btn btn-primary" })
+    </p>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayName("Purchase Product")</th>
+                    <th>@Html.DisplayName("Purchase Quantity")</th>
+                    <th>@Html.DisplayName("Purchase Date")</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.purchase_product)</td>
+                        <td>@Html.DisplayFor(modelItem => item.purchase_quantity)</td>
+                        <td>@Html.DisplayFor(modelItem => item.purchase_date)</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Purchase", new { id = item.id })" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="@Url.Action("Details", "Purchase", new { id = item.id })" class="btn btn-success btn-sm">Details</a>
+                            <a href="@Url.Action("Delete", "Purchase", new { id = item.id })" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@model GroceryManagment.Models.sale
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+
+    body{
+        background-color: lightcyan;
+    }
+    .container{
+        text-align: center;
+        margin-left: 20px;
+    }
+    </style>
+<div class="container">
+<h2>Details</h2>
+
+<div>
+    <h4>sale</h4>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Product Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sale_product)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Product Quantity")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sale_quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Sale Date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sale_date)
+        </dd>
+
+    </dl>
+</div>
+<br>
+<p>
+    @Html.ActionLink("Edit", "Edit", "sale", new { id = Model.id }, new { @class = "btn btn-outline-primary" }) 
+    @Html.ActionLink("cancel", "DisplaySale", "sale", new { @class = "btn btn-outline-danger" })
+</p>
+     </div>

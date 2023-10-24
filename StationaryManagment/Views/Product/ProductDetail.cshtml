@@ -1,0 +1,42 @@
+﻿@model GroceryManagment.Models.product
+
+@{
+    ViewBag.Title = "ProductDetail";
+}
+
+<h2>Item Details</h2>
+<style>
+   body{
+       background-color: lightcyan;
+   }
+   .container{
+       text-align: center;
+       
+   }
+</style>
+<div class="main">
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Product Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Product Quantity")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_quantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "UpdateProduct","product" ,new { id = Model.id }, new { @class = "btn btn-outline-primary" }) |
+    @Html.ActionLink("Cancel", "DisplayProduct","product", new { @class = "btn btn-outline-danger" })
+</p>
